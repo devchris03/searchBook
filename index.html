@@ -3,40 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
     <title>searchBook</title>
 </head>
 <body>
-    <header class=".header">
-        <h1 class="header-title">searchBook</h1>
-        <p class="header-description">Selecciona diferentes filtros para encontrar los libros según tus preferencias.</p>
+    <header class="header">
+        <div class="header-content wrapper">
+            <h1 class="header-title">searchBook</h1>
+            <p class="header-description">Selecciona diferentes filtros para encontrar los libros según tus preferencias.</p>
+        </div>
     </header>
-    <section class="selectList">
-        <div class="selectItem">
-            <label for="categoría" class="selectItem-label">Categoría</label>
-            <select name="categoría" id="categoría" class="selectItem-select">
-            </select>
-        </div> <!-- select categoría -->
-        <div class="selectItem">
-            <label for="autor" class="selectItem-label">Autor(a)</label>
-            <select name="autor" id="autor" class="selectItem-select">
-            </select>
-        </div> <!-- select autor -->
-        <div class="selectItem">
-            <label for="año" class="selectItem-label">Año de publicación</label>
-            <select name="año" id="año" class="selectItem-select">
-            </select>
-        </div> <!-- select año -->
-        <div class="selectItem">
-            <label for="idioma" class="selectItem-label">Idioma</label>
-            <select name="idioma" id="idioma" class="selectItem-select">
-            </select>
-        </div> <!-- select idioma -->
-        <div class="selectItem">
-            <label for="páginas" class="selectItem-label">Número de páginas</label>
-            <select name="páginas" id="páginas" class="selectItem-select">
-            </select>
-        </div> <!-- select páginas -->
-
+    <section class="selectList" aria-label="Busca libros">
+        <div class="selectList-content wrapper">
+            <div class="selectItem">
+                <label for="categoría" class="selectItem-label">Categoría</label>
+                <select name="categoría" id="categoría" class="selectItem-select">
+                    <option value="arte">Arte</option>
+                    <option value="literatura">Literatura</option>
+                    <option value="novelas">Comics</option>
+                    <option value="derecho">Derecho</option>
+                    <option value="tecnologia">Tecnología</option>
+                    <option value="desarrollo personal">Desarrollo personal</option>
+                </select>
+            </div> <!-- select categoría -->
+            <div class="selectItem">
+                <label for="autor" class="selectItem-label">Autor(a)</label>
+                <select name="autor" id="autor" class="selectItem-select">
+                    <option value="julia cameron">Julia Cameron</option>
+                    <option value="umberto jara">Umberto Jara</option>
+                    <option value="dennis o'nel">Dennis O'nel</option>
+                    <option value="seth godin">Seth Godin</option>
+                    <option value="aditya bhargaua">Aditya Bhargaua</option>
+                    <option value="joe dispienza">Joe Dispienza</option>
+                </select>
+            </div> <!-- select autor -->
+            <div class="selectItem">
+                <label for="año" class="selectItem-label">Año de publicación</label>
+                <select name="año" id="año" class="selectItem-select">
+                    <option value="2019">2019</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                </select>
+            </div> <!-- select año -->
+            <div class="selectItem">
+                <label for="idioma" class="selectItem-label">Idioma</label>
+                <select name="idioma" id="idioma" class="selectItem-select">
+                    <option value="español">Español</option>
+                    <option value="ingles">Inglés</option>
+                </select>
+            </div> <!-- select idioma -->
+            <div class="selectItem">
+                <label for="páginas" class="selectItem-label">Número de páginas</label>
+                <select name="páginas" id="páginas" class="selectItem-select">
+                    <option value="coto">Corto</option>
+                    <option value="medio">Medio</option>
+                    <option value="largo">Largo</option>
+                </select>
+            </div> <!-- select páginas -->
+            <div class="selectItem">
+                <label for="editorial" class="selectItem-label">Editorial</label>
+                <select name="editorial" id="editorial" class="selectItem-select">
+                    <option value="aguilar">Aguilar</option>
+                    <option value="planeta perú">Planeta Perú</option>
+                    <option value="dc comics">DC Comics</option>
+                    <option value="booket">Booket</option>
+                    <option value="anaya multimedia">Anaya Multimedia</option>
+                    <option value="urano">Urano</option>
+                </select>
+            </div> <!-- select editorial -->
+        </div>
     </section>
+    <main class="result">
+        <div class="result-content wrapper">
+            <h1 class="result-title">Resultados encontrados</h1>
+        </div>
+    </main>
 </body>
 </html>
