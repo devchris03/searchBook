@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const año = document.querySelector('#año'); 
     const paginas = document.querySelector('#paginas'); 
     const editorial = document.querySelector('#editorial'); 
+    const filter = document.querySelector('#filter');
+    let form = {
+    }
+
+    
     let resultList = books;
 
     // agrega eventos
@@ -18,63 +23,47 @@ document.addEventListener('DOMContentLoaded', function() {
     editorial.addEventListener('change', seleccionar);
 
 
-    // muestra resultados
-    showResult();
 
-    function showResult() {
-        // limpia resultados
+    showResult(resultList);
+    // muestra los resultados
+    function showResult(results) {
         cleanResult();
 
-        resultList.forEach(book => {
-            const resultItem = document.createElement('P');
+        results.forEach(book => {
+            const item = document.createElement('P');
             const {nombre, categoria, autor, año, idioma, paginas, editorial} = book;
-            resultItem.textContent = `${nombre} - ${categoria} - ${autor} - ${año} - ${idioma} - ${paginas} - ${editorial}`;
-        
-            result.appendChild(resultItem)
+            item.textContent = `${nombre} - ${categoria} - ${autor} - ${año} - ${idioma} - ${paginas} - ${editorial}`
+            
+            result.appendChild(item);
         });
 
     }
 
 
-    // filtra por seleccion
     function seleccionar(event) {
 
-        if(event.target.value !== "") {
-            let x = event.target.name;
-
-            let exit = resultList.some(book => book[x] == event.target.value)
-            
-            console.log(exit)
-            
-            if(exit) {
-                resultList = resultList.filter(book => book[x] == event.target.value);
-                showResult(resultList)
-            } else {
-                const y = document.createElement('P')
-                y.textContent = 'No se encontraron resultados';
-                cleanResult();
-                result.appendChild(y)
+        form[event.target.name] = event.target.value;
+        if(Object.values(form).length == 1) {
+            if(event.target.value !== '') {
+                const newResult = resultList.filter(book => book[event.target.name] == event.target.value);
+                showResult(newResult);
+                return
             }
 
+            const newResult = resultList;
+            showResult(newResult);
+        }
 
-        } 
-
-        // else {
-        //     resultList = resultList.filter(book => book.typeSelect !== "")
-        //     showResult(resultList)
-        // }
+        if(Object.values(form).length > 1) {
+            console.log ('nono')
+        }
     }
 
 
     // limpia los resultados
     function cleanResult() {
-        while (result.firstChild) {
-            result.removeChild(result.firstChild);
+        while(result.firstChild) {
+            result.removeChild(result.firstChild)
         }
     }
-
-    
-
-    
-
 })
