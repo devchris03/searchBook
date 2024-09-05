@@ -16,27 +16,27 @@
     <section class="selectList" aria-label="Busca libros">
         <div class="selectList-content wrapper">
             <div class="selectItem">
-                <label for="categoría" class="selectItem-label">Categoría</label>
-                <select name="categoría" id="categoría" class="selectItem-select">
+                <label for="categoria" class="selectItem-label">Categoría</label>
+                <select name="categoria" id="categoria" class="selectItem-select">
                     <option value="">-- Selecciona una opción --</option>
-                    <option value="arte">Arte</option>
-                    <option value="literatura">Literatura</option>
-                    <option value="novelas">Comics</option>
-                    <option value="derecho">Derecho</option>
-                    <option value="tecnologia">Tecnología</option>
-                    <option value="desarrollo personal">Desarrollo personal</option>
+                    <option value="Arte">Arte</option>
+                    <option value="Literatura">Literatura</option>
+                    <option value="Comics">Comics</option>
+                    <option value="Derecho">Derecho</option>
+                    <option value="Tecnología">Tecnología</option>
+                    <option value="Desarrollo Personal">Desarrollo Personal</option>
                 </select>
             </div> <!-- select categoría -->
             <div class="selectItem">
                 <label for="autor" class="selectItem-label">Autor(a)</label>
                 <select name="autor" id="autor" class="selectItem-select">
                     <option value="">-- Selecciona una opción --</option>
-                    <option value="julia cameron">Julia Cameron</option>
-                    <option value="umberto jara">Umberto Jara</option>
-                    <option value="dennis o'nel">Dennis O'nel</option>
-                    <option value="seth godin">Seth Godin</option>
-                    <option value="aditya bhargaua">Aditya Bhargaua</option>
-                    <option value="joe dispienza">Joe Dispienza</option>
+                    <option value="Julia Cameron">Julia Cameron</option>
+                    <option value="Umberto Jara">Umberto Jara</option>
+                    <option value="Dennis O'nel">Dennis O'nel</option>
+                    <option value="Seth Godin">Seth Godin</option>
+                    <option value="Aditya Bhargaua">Aditya Bhargaua</option>
+                    <option value="Joe Dispienza">Joe Dispienza</option>
                 </select>
             </div> <!-- select autor -->
             <div class="selectItem">
@@ -52,29 +52,29 @@
                 <label for="idioma" class="selectItem-label">Idioma</label>
                 <select name="idioma" id="idioma" class="selectItem-select">
                     <option value="">-- Selecciona una opción --</option>
-                    <option value="español">Español</option>
-                    <option value="ingles">Inglés</option>
+                    <option value="Español">Español</option>
+                    <option value="Inglés">Inglés</option>
                 </select>
             </div> <!-- select idioma -->
             <div class="selectItem">
-                <label for="páginas" class="selectItem-label">Número de páginas</label>
-                <select name="páginas" id="páginas" class="selectItem-select">
+                <label for="paginas" class="selectItem-label">Número de páginas</label>
+                <select name="paginas" id="paginas" class="selectItem-select">
                     <option value="">-- Selecciona una opción --</option>
-                    <option value="coto">Corto</option>
-                    <option value="medio">Medio</option>
-                    <option value="largo">Largo</option>
+                    <option value="Corto">Corto</option>
+                    <option value="Medio">Medio</option>
+                    <option value="Largo">Largo</option>
                 </select>
             </div> <!-- select páginas -->
             <div class="selectItem">
                 <label for="editorial" class="selectItem-label">Editorial</label>
                 <select name="editorial" id="editorial" class="selectItem-select">
                     <option value="">-- Selecciona una opción --</option>
-                    <option value="aguilar">Aguilar</option>
-                    <option value="planeta perú">Planeta Perú</option>
-                    <option value="dc comics">DC Comics</option>
-                    <option value="booket">Booket</option>
-                    <option value="anaya multimedia">Anaya Multimedia</option>
-                    <option value="urano">Urano</option>
+                    <option value="Aguilar">Aguilar</option>
+                    <option value="Planeta Perú">Planeta Perú</option>
+                    <option value="DC Comics">DC Comics</option>
+                    <option value="Booket">Booket</option>
+                    <option value="Anaya Multimedia">Anaya Multimedia</option>
+                    <option value="Urano">Urano</option>
                 </select>
             </div> <!-- select editorial -->
         </div>
@@ -82,7 +82,10 @@
     <main class="result">
         <div class="result-content wrapper">
             <h1 class="result-title">Resultados encontrados</h1>
+            <div class="result-layout" id="result"></div>
         </div>
     </main>
+    <script src="./js/bd.js"></script>
+    <script src="./js/app.js"></script>
 </body>
 </html>
