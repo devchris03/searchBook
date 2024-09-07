@@ -3,6 +3,9 @@
     font-size: 16px;
     --black: #1e1e1e;
     --purple: #dda0dd;
+    --white: #fdfdfd;
+    --red: #f64545;
+    --gray: #646464;
     --fontFamily: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -61,6 +64,42 @@ body {
 
 .result-title {
     text-align: center;
+    margin-block-end: 3rem;
+}
+
+.resultItem {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    padding: 1rem 0;
+    margin-block-end: 2rem;
+    border-block-end: 1px solid var(--gray);
+
+    & .name {
+        font-weight: 900;
+    }
+}
+
+
+
+/* ALERT */
+.alert-text{
+    padding: .5rem .5rem;
+    border-radius: .25rem;
+    background: var(--red);
+    color: var(--white);
+    margin: 0;
+}
+
+.alert-img {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    max-inline-size: 25rem;
+    margin: 0 auto;
 }
 
 
@@ -77,6 +116,10 @@ body {
         min-inline-size: 12.5rem;
         max-inline-size: 300px;
         flex: 1;
+    }
+
+    .alert-text {
+        font-size: 1.25rem;
     }
 }
 

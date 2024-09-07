@@ -6,7 +6,8 @@ const books = [
         año: '2019',
         idioma: 'Español',
         paginas: 'Medio',
-        editorial: 'Aguilar'
+        npaginas: '320',
+        editorial: 'Aguilar',
     },
 
     {
@@ -16,6 +17,7 @@ const books = [
         año: '2022',
         idioma: 'Español',
         paginas: 'Medio',
+        npaginas: '304',
         editorial: 'Planeta Perú'
     },
 
@@ -26,6 +28,7 @@ const books = [
         año: '2022',
         idioma: 'Inglés',
         paginas: 'Largo',
+        npaginas: '1024',
         editorial: 'DC Comics'
     },
     
@@ -36,6 +39,7 @@ const books = [
         año: '2023',
         idioma: 'Español',
         paginas: 'Poco',
+        npaginas: '150',
         editorial: 'Booket'
     },
     
@@ -46,6 +50,7 @@ const books = [
         año: '2019',
         idioma: 'Español',
         paginas: 'Medio',
+        npaginas: '385',
         editorial: 'Anaya Multimedia'
     },
     
@@ -56,6 +61,51 @@ const books = [
         año: '2023',
         idioma: 'Español',
         paginas: 'Medio',
+        npaginas: '268',
         editorial: 'Urano'
+    },
+
+    {
+        nombre: 'El amor en los tiempos del cólera',
+        categoria: 'Arte',
+        autor: 'Gabriel García Márquez ',
+        año: '2019',
+        idioma: 'Español',
+        paginas: 'Medio',
+        npaginas: '400',
+        editorial: 'Random House'
+    },
+
+    {
+        nombre: 'La historia del arte',
+        categoria: 'Arte',
+        autor: 'E. H. Gombrich ',
+        año: '2007',
+        idioma: 'Español',
+        paginas: 'largo',
+        npaginas: '688',
+        editorial: 'Phaidon'
+    },
+
+    {
+        nombre: 'A fuego lento',
+        categoria: 'Arte',
+        autor: 'Paula Hawkins',
+        año: '2021',
+        idioma: 'Español',
+        paginas: 'Medio',
+        npaginas: '480',
+        editorial: 'Phaidon'
+    },
+
+    {
+        nombre: 'El Avaro',
+        categoria: 'Arte',
+        autor: 'Molière',
+        año: '2017',
+        idioma: 'Español',
+        paginas: 'Poco',
+        npaginas: '128',
+        editorial: 'Mestas Ediciones'
     },
 ]

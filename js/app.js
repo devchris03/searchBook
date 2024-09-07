@@ -33,9 +33,13 @@ document.addEventListener('DOMContentLoaded', function(){
         cleanResult();
 
         books.forEach(book => {
-            const {categoria, autor, año, idioma, paginas, editorial} = book;
+            const {nombre, categoria, autor, año, idioma, npaginas, editorial} = book;
             const bookItem = document.createElement('P');
-            bookItem.textContent = `${categoria} - ${autor} - ${año} - ${idioma} - ${paginas} - ${editorial}`;
+            bookItem.classList.add('resultItem');
+            bookItem.innerHTML = `
+                <span class="name">${nombre}</span> <span>${autor}</span> <span>${categoria}</span> <span>${año}</span> <span>${idioma}</span> <span>${npaginas} pag.   </span> <span>${editorial}</span>  
+            `
+            // bookItem.textContent = `${categoria} - ${autor} - ${año} - ${idioma} - ${paginas} - ${editorial}`;
 
             resultContent.append(bookItem);
         })
@@ -52,8 +56,12 @@ document.addEventListener('DOMContentLoaded', function(){
         if(newResult.length){
             showResult(newResult)
         } else {
-            const alert = document.createElement('P');
-            alert.textContent = 'No se encontraron libros que coincidan con los filtros seleccionados. Por favor, ajusta tus criterios de búsqueda e intenta nuevamente.'
+            const alert = document.createElement('DIV');
+            alert.classList.add('alert')
+            alert.innerHTML = `
+                <p class="alert-text">No se encontraron libros que coincidan con los filtros seleccionados. Por favor, ajusta tus criterios de búsqueda e intenta nuevamente</p>
+                <img class="alert-img" loading="lazy" src="./img/not-found-book.png" alt="Perrito leyendo" width="280">
+                `
             
             cleanResult();
             resultContent.appendChild(alert);
