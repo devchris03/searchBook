@@ -1,69 +1,121 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function(){
     // asigna variables
-    const result = document.querySelector('#result');
     const categoria = document.querySelector('#categoria');
-    const idioma = document.querySelector('#idioma');
     const autor = document.querySelector('#autor');
-    const año = document.querySelector('#año'); 
-    const paginas = document.querySelector('#paginas'); 
-    const editorial = document.querySelector('#editorial'); 
-    const filter = document.querySelector('#filter');
-    let form = {
-    }
+    const año = document.querySelector('#año');
+    const idioma = document.querySelector('#idioma');
+    const paginas = document.querySelector('#paginas');
+    const editorial = document.querySelector('#editorial');
+    const resultContent = document.querySelector('#resultContent');
 
-    
-    let resultList = books;
+    // asigna valores seleccionados
+    let form = {
+        categoria: '',
+        autor: '',
+        año: '',
+        idioma: '',
+        paginas: '',
+        editorial: '',
+    }
 
     // agrega eventos
-    categoria.addEventListener('change', seleccionar)
-    idioma.addEventListener('change', seleccionar);
-    autor.addEventListener('change', seleccionar);
-    año.addEventListener('change', seleccionar);
-    paginas.addEventListener('change', seleccionar);
-    editorial.addEventListener('change', seleccionar);
+    categoria.addEventListener('change', filter);
+    autor.addEventListener('change', filter);
+    año.addEventListener('change', filter);
+    idioma.addEventListener('change', filter);
+    paginas.addEventListener('change', filter);
+    editorial.addEventListener('change', filter);
 
+    showResult(books)
 
-
-    showResult(resultList);
-    // muestra los resultados
-    function showResult(results) {
+    // muestra resultados
+    function showResult(books) {
         cleanResult();
 
-        results.forEach(book => {
-            const item = document.createElement('P');
-            const {nombre, categoria, autor, año, idioma, paginas, editorial} = book;
-            item.textContent = `${nombre} - ${categoria} - ${autor} - ${año} - ${idioma} - ${paginas} - ${editorial}`
-            
-            result.appendChild(item);
-        });
+        books.forEach(book => {
+            const {categoria, autor, año, idioma, paginas, editorial} = book;
+            const bookItem = document.createElement('P');
+            bookItem.textContent = `${categoria} - ${autor} - ${año} - ${idioma} - ${paginas} - ${editorial}`;
 
+            resultContent.append(bookItem);
+        })
     }
 
 
-    function seleccionar(event) {
-
+    // filtra segun elección
+    function filter(event) {
         form[event.target.name] = event.target.value;
-        if(Object.values(form).length == 1) {
-            if(event.target.value !== '') {
-                const newResult = resultList.filter(book => book[event.target.name] == event.target.value);
-                showResult(newResult);
-                return
-            }
+        console.log(form)
 
-            const newResult = resultList;
-            showResult(newResult);
+        const newResult = books.filter(filterCategory).filter(filterAuthor).filter(filterYear).filter(filterLenguage).filter(filterPage).filter(filterEditorial);
+
+        if(newResult.length){
+            showResult(newResult)
+        } else {
+            const alert = document.createElement('P');
+            alert.textContent = 'No se encontraron libros que coincidan con los filtros seleccionados. Por favor, ajusta tus criterios de búsqueda e intenta nuevamente.'
+            
+            cleanResult();
+            resultContent.appendChild(alert);
+        }
+        
+    }
+
+
+    // aplica filtros
+    function filterCategory(book){
+        if(form.categoria){
+            return book.categoria == form.categoria;
         }
 
-        if(Object.values(form).length > 1) {
-            console.log ('nono')
+        return book;
+    }
+
+    function filterAuthor(book){
+        if(form.autor){
+            return book.autor == form.autor;
         }
+
+        return book;
+    }
+
+    function filterYear(book){
+        if(form.año){
+            return book.año == form.año;
+        }
+
+        return book;
+    }
+
+    function filterLenguage(book){
+        if(form.idioma){
+            return book.idioma == form.idioma;
+        }
+
+        return book;
+    }
+
+    function filterPage(book){
+        if(form.paginas){
+            return book.paginas == form.paginas;
+        }
+
+        return book;
+    }
+
+    function filterEditorial(book){
+        if(form.editorial){
+            return book.editorial == form.editorial;
+        }
+
+        return book;
     }
 
 
     // limpia los resultados
-    function cleanResult() {
-        while(result.firstChild) {
-            result.removeChild(result.firstChild)
+    function cleanResult(){
+        while(resultContent.firstChild){
+            resultContent.removeChild(resultContent.firstChild);
         }
     }
 })
