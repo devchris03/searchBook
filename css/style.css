@@ -3,6 +3,7 @@
     font-size: 16px;
     --black: #1e1e1e;
     --purple: #dda0dd;
+    --purpleDark: #872b87;
     --white: #fdfdfd;
     --red: #f64545;
     --gray: #646464;
@@ -60,7 +61,35 @@ body {
     border-radius: .5rem;
 }
 
+/* BOTONES */
+
+.btnReset{
+    display: block;
+    inline-size: 200px;
+    margin-inline: auto;
+    background: var(--purpleDark);
+    color: var(--white);
+    padding: .5rem 1.5rem;
+    font-weight: 700;
+    border-radius: 1rem;
+    border: none;
+    font-size: 1rem;
+    margin-block-start: 2rem;
+    box-shadow: inset -1px -1px 3px var(--purple);
+    opacity: 1;
+    cursor: pointer;
+    transition: background .5s;
+}
+
+.btnReset:hover {
+    background: rgb(104, 2, 104);
+}
+
 /* RESULT */
+
+.result {
+    padding-block: 2rem;
+}
 
 .result-title {
     text-align: center;
