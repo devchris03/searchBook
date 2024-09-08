@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const paginas = document.querySelector('#paginas');
     const editorial = document.querySelector('#editorial');
     const resultContent = document.querySelector('#resultContent');
+    const btnReset = document.querySelector('#btnReset');
 
     // asigna valores seleccionados
     let form = {
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function(){
     idioma.addEventListener('change', filter);
     paginas.addEventListener('change', filter);
     editorial.addEventListener('change', filter);
+    btnReset.addEventListener('click', resetSelects);
 
     showResult(books)
 
@@ -39,8 +41,6 @@ document.addEventListener('DOMContentLoaded', function(){
             bookItem.innerHTML = `
                 <span class="name">${nombre}</span> <span>${autor}</span> <span>${categoria}</span> <span>${año}</span> <span>${idioma}</span> <span>${npaginas} pag.   </span> <span>${editorial}</span>  
             `
-            // bookItem.textContent = `${categoria} - ${autor} - ${año} - ${idioma} - ${paginas} - ${editorial}`;
-
             resultContent.append(bookItem);
         })
     }
@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', function(){
     // filtra segun elección
     function filter(event) {
         form[event.target.name] = event.target.value;
-        console.log(form)
 
         const newResult = books.filter(filterCategory).filter(filterAuthor).filter(filterYear).filter(filterLenguage).filter(filterPage).filter(filterEditorial);
 
@@ -125,5 +124,20 @@ document.addEventListener('DOMContentLoaded', function(){
         while(resultContent.firstChild){
             resultContent.removeChild(resultContent.firstChild);
         }
+    }
+
+
+    // resetea los campos select
+    function resetSelects() {
+        form = {
+            categoria: '',
+            autor: '',
+            año: '',
+            idioma: '',
+            paginas: '',
+            editorial: '',
+        };
+
+        showResult(books)
     }
 })
